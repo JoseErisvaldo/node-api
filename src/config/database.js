@@ -2,10 +2,11 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const isProduction = process.env.NODE_ENV === "production";
+const dbHost = process.env.DB_HOST || "localhost";
+const isLocalDatabase = ["localhost", "127.0.0.1"].includes(dbHost);
 const dbSSL =
   process.env.DB_SSL === "true" ||
-  (isProduction && process.env.DB_SSL !== "false");
+  (process.env.DB_SSL !== "false" && !isLocalDatabase);
 const dbSSLRejectUnauthorized =
   process.env.DB_SSL_REJECT_UNAUTHORIZED === "true";
 
@@ -13,7 +14,7 @@ const databaseConfig = {
   username: process.env.DB_USERNAME || "postgres",
   password: process.env.DB_PASSWORD || "postgres",
   database: process.env.DB_DATABASE || "finance_api",
-  host: process.env.DB_HOST || "localhost",
+  host: dbHost,
   port: process.env.DB_PORT || 5432,
   dialect: "postgres",
   logging: false,
