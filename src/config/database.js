@@ -2,6 +2,10 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
+const dbSSL = process.env.DB_SSL === "true";
+const dbSSLRejectUnauthorized =
+  process.env.DB_SSL_REJECT_UNAUTHORIZED === "true";
+
 const databaseConfig = {
   username: process.env.DB_USERNAME || "postgres",
   password: process.env.DB_PASSWORD || "postgres",
@@ -10,6 +14,14 @@ const databaseConfig = {
   port: process.env.DB_PORT || 5432,
   dialect: "postgres",
   logging: false,
+  dialectOptions: dbSSL
+    ? {
+        ssl: {
+          require: true,
+          rejectUnauthorized: dbSSLRejectUnauthorized,
+        },
+      }
+    : {},
 };
 
 export default databaseConfig;
