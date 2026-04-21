@@ -13,7 +13,8 @@ dotenv.config();
 const app = express();
 
 const corsEnabled = process.env.CORS_ENABLED !== "false";
-const corsOrigin = process.env.CORS_ORIGIN || "http://localhost:5173";
+const corsOrigin =
+  "https://finance-app-brown-ten.vercel.app" || "http://localhost:5173";
 if (corsEnabled) {
   app.use(
     cors({
