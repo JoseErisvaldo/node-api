@@ -1,0 +1,42 @@
+{
+  "name": "finance-api",
+  "version": "1.0.0",
+  "description": "API REST para gestão de finanças pessoais com Node, Sequelize e Docker",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "sequelize:migrate": "npx sequelize-cli db:migrate --config src/database/config.cjs --migrations-path src/database/migrations --seeders-path src/database/seeders --models-path src/database/models",
+    "sequelize:seed": "npx sequelize-cli db:seed:all --config src/database/config.cjs --seeders-path src/database/seeders --models-path src/database/models",
+    "lint": "echo \"No lint configured\""
+  },
+  "keywords": [
+    "node",
+    "express",
+    "sequelize",
+    "postgres",
+    "docker",
+    "jwt"
+  ],
+  "author": "generated",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.6",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "joi": "^18.1.2",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.12.0",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.37.8",
+    "stripe": "^22.0.2",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "sequelize-cli": "^6.6.0"
+  }
+}
