@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon src/server.js",
-    "start": "node src/server.js",
+    "start": "npm run sequelize:migrate && node src/server.js",
     "sequelize:migrate": "npx sequelize-cli db:migrate --config src/database/config.cjs --migrations-path src/database/migrations --seeders-path src/database/seeders --models-path src/database/models",
     "sequelize:seed": "npx sequelize-cli db:seed:all --config src/database/config.cjs --seeders-path src/database/seeders --models-path src/database/models",
     "lint": "echo \"No lint configured\""

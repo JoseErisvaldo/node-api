@@ -5,7 +5,7 @@ API REST para gestão de finanças pessoais usando Node.js, Express, Sequelize, 
 ## Scripts
 
 - `npm run dev` - executa o servidor em modo desenvolvimento
-- `npm run start` - executa o servidor em produção
+- `npm run start` - executa o servidor em produção (aplica migrations automaticamente antes de iniciar)
 - `npm run sequelize:migrate` - aplica migrations
 - `npm run sequelize:seed` - executa seeders
 
