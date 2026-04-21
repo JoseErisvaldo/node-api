@@ -15,6 +15,7 @@ const sequelize = new Sequelize(
     port: databaseConfig.port,
     dialect: databaseConfig.dialect,
     logging: false,
+    dialectOptions: databaseConfig.dialectOptions,
   },
 );
 
