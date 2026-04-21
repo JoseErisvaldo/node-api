@@ -4,11 +4,8 @@ dotenv.config();
 
 const dbHost = process.env.DB_HOST || "localhost";
 const isLocalDatabase = ["localhost", "127.0.0.1"].includes(dbHost);
-const dbSSL =
-  process.env.DB_SSL === "true" ||
-  (process.env.DB_SSL !== "false" && !isLocalDatabase);
-const dbSSLRejectUnauthorized =
-  process.env.DB_SSL_REJECT_UNAUTHORIZED === "true";
+const dbSSL = !isLocalDatabase;
+const dbSSLRejectUnauthorized = false;
 
 const dialectOptions = dbSSL
   ? {
