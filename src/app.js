@@ -12,9 +12,8 @@ dotenv.config();
 
 const app = express();
 
-const corsEnabled = process.env.CORS_ENABLED !== "false";
-const corsOrigin =
-  process.env.CORS_ORIGIN || "https://finance-app-brown-ten.vercel.app";
+const corsEnabled = "true";
+const corsOrigin = "https://finance-app-brown-ten.vercel.app";
 if (corsEnabled) {
   app.use(
     cors({
